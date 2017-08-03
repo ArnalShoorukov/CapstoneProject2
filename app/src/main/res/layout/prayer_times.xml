@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlue"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/fajr"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/fajr" />
+
+        <TextView
+            android:id="@+id/fajr_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="03.16" />
+
+        <ImageView
+            android:id="@+id/fajr_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            android:src="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sunrise"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/sunrise" />
+
+        <TextView
+            android:id="@+id/sunrise_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="05.30" />
+
+        <ImageView
+            android:id="@+id/sunrise_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            android:src="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/zuhr"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/zuhr" />
+
+        <TextView
+            android:id="@+id/zuhr_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="13.06" />
+
+        <ImageView
+            android:id="@+id/zuhr_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            android:src="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/asr"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/asr" />
+
+        <TextView
+            android:id="@+id/asr_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="17.00" />
+
+        <ImageView
+            android:id="@+id/asr_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            android:src="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/magreeb"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/magreeb" />
+
+        <TextView
+            android:id="@+id/magreeb_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="20.43" />
+
+        <ImageView
+            android:id="@+id/magreeb_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            app:srcCompat="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/isha"
+            style="@style/prayer_times"
+            android:gravity="center"
+            android:text="@string/isha" />
+
+        <TextView
+            android:id="@+id/isha_time"
+            style="@style/prayer_times"
+            android:gravity="end"
+            android:text="22.46" />
+
+        <ImageView
+            android:id="@+id/isha_not"
+            style="@style/prayer_times"
+            android:paddingLeft="40dp"
+            android:src="@drawable/ic_notifications_black_24dp" />
+
+    </LinearLayout>
+</LinearLayout>

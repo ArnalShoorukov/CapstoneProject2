@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_units_options">
+        <item>@string/pref_units_label_metric</item>
+        <item>@string/pref_units_label_imperial</item>
+    </string-array>
+
+    <string-array name="pref_units_values">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+
+    <string-array name="settings_sort_by_labels">
+        <item>@string/settings_sort_by_highest_rating_label</item>
+        <item>@string/settings_sort_by_most_popular_label</item>
+    </string-array>
+
+    <string-array name="settings_sort_by_values">
+        <item>@string/settings_sort_by_highest_rating_value</item>
+        <item>@string/settings_sort_by_most_popular_value</item>
+    </string-array>
+
+
+    <!-- Label ordering must match values -->
+    <array name="pref_method_option_labels">
+        <item>@string/pref_method_label_jafari</item>
+        <item>@string/pref_method_label_karachi</item>
+        <item>@string/pref_method_label_isna</item>
+        <item>@string/pref_method_label_mwl</item>
+        <item>@string/pref_method_label_qura</item>
+        <item>@string/pref_method_label_egypt</item>
+        <item>@string/pref_method_label_tehran</item>
+
+    </array>
+
+    <array name="pref_method_option_values">
+        <item>@string/pref_method_jafari_value</item>
+        <item>@string/pref_method_karachi_value</item>
+        <item>@string/pref_method_isna_value</item>
+        <item>@string/pref_method_mwl_value</item>
+        <item>@string/pref_method_qura_value</item>
+        <item>@string/pref_method_egypt_value</item>
+        <item>@string/pref_method_tehran_value</item>
+    </array>
+
+
+
+
+    <!-- Label ordering must match values -->
+    <array name="pref_time_format_option_labels">
+        <item>@string/pref_time_format_lebel_24</item>
+        <item>@string/pref_time_format_lebel_12</item>
+    </array>
+
+    <array name="pref_time_format_option_values">
+        <item>@string/pref_time_format_24_value</item>
+        <item>@string/pref_time_format_12_value</item>
+    </array>
+
+
+    <!-- Label ordering must match values -->
+    <array name="pref_juristic_option_labels">
+        <item>@string/pref_juristic_lebel_shafii</item>
+        <item>@string/pref_juristic_lebel_hanafi</item>
+    </array>
+
+    <array name="pref_juristic_option_values">
+        <item>@string/pref_juristic_shafii_value</item>
+        <item>@string/pref_juristic_hanafi_value</item>
+    </array>
+
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:defaultValue="@string/pref_location_default"
+        android:key="@string/pref_location_key"
+        android:title="@string/pref_location_label" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_method_mwl_value"
+        android:entries="@array/pref_method_option_labels"
+        android:entryValues="@array/pref_method_option_values"
+        android:key="@string/pref_method_key"
+        android:title="@string/pref_method_label" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_time_format_24_value"
+        android:entries="@array/pref_time_format_option_labels"
+        android:entryValues="@array/pref_time_format_option_values"
+        android:key="@string/pref_time_key"
+        android:title="@string/pref_time_label" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_juristic_shafii_value"
+        android:entries="@array/pref_juristic_option_labels"
+        android:entryValues="@array/pref_juristic_option_values"
+        android:key="@string/pref_juristic_key"
+        android:title="@string/pref_juristic_label" />
+
+</PreferenceScreen>

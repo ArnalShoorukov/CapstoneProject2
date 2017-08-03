@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_dua"
+        android:text="@string/title_first"
+        android:padding="4dp"
+        android:layout_gravity="center"/>
+    <!--<ImageView
+        android:id="@+id/arabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Translation" />
+
+    <TextView
+        android:id="@+id/translation_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Benefit" />
+
+    <TextView
+        android:id="@+id/benefit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reference" />
+
+    <TextView
+        android:id="@+id/reference_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
+
+
+
+</LinearLayout>

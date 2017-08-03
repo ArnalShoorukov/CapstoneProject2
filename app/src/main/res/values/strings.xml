@@ -1,0 +1,281 @@
+<resources>
+    <string name="app_name">PrayerTimesApp</string>
+
+    <string name="action_map">Map Location</string>
+    <string name="qibla">Qibla Direction</string>
+    <string name="names">The Names of Allah</string>
+    <string name="category_compass">Compass</string>
+    <string name="category_map">Map</string>
+
+    <string name="action_share">Share</string>
+
+    <!-- Used to open Settings Menu from MainActivity and DetailActivity -->
+    <string name="action_settings">Settings</string>
+
+
+    <!--Dua Fragment-->
+    <string name="dua">Daily Supplications</string>
+    <string name="dua_title">Daily Supplications</string>
+    <string name="category_all">All</string>
+    <string name="category_favor">Favorite Dua</string>
+    <string name="added_favorite">Added to favourites</string>
+    <string name="favourited">Favourite</string>
+    <string name="mark_as_favourite">Mark As Favourite</string>
+
+    <string name="empty_favourite_gridview_message">Add some of your favourite movies here.</string>
+
+
+    <!-- String english, String reference,String benefit-->
+
+    <string name="id_first">1</string>
+    <string name="title_first">Upon Going to sleep</string>
+    <string name="english_first">O Allah ,In Your Name, I die and I live</string>
+    <string name="reference_first">Muslim 4/2083, Fateh-al-Bari 11/113 </string>
+    <string name="benefit_title"> Hudhaifa (may Allah be pleased with him) narrated, when the Prophet (peace be upon him) went to bed, he would say this Du’a….
+[Bukhari v. 8, Book 75/326] </string>
+
+    <string name="id_second">2</string>
+    <string name="title_second">Wake up from sleep</string>
+    <string name="english_second">All praise be to Allah, who gave us life after killing us (sleep is a form of death) and to Him will we be raised and returned </string>
+    <string name="reference_second">Muslim 4/2083, Fateh-al-Bari 11/113 </string>
+    <string name="benefit_second">Hudhaifa (may Allah be pleased with him) narrated – when the Prophet (peace be upon him) when he got up, he would say this Du’a….
+[Bukhari v. 8, Book 75/326] </string>
+
+    <string name="id_third">3</string>
+    <string name="title_third">Entering the Toilet</string>
+    <string name="english_third">In the name of Allah,O Allah. I seek refuge in You from the male female evil and Jinn’s</string>
+    <string name="reference_third">Al Bhukari  1/45, Sahih Muslim 1/283 </string>
+    <string name="benefit_third">Narrated Anas bin Malik (may Allah be pleased with him) Whenever the Prophet (peace be upon him) went to the lavatory, he used to say this Du’a….
+[Enter the toilet with left foot first]
+[Bukhari v. 8, Book 75/334]</string>
+
+    <string name="id_four">4</string>
+    <string name="title_four">Leaving the Toilet</string>
+    <string name="english_four">O Allah, I seek forgiveness and pardon from You, All Praise be to Allah, who removed the difficulty from me and gave me ease (relief)</string>
+    <string name="reference_four">Abu Dawood, Ibn Majah, At Trimidi</string>
+    <string name="benefit_four">Leave the toilet with right foot first</string>
+
+    <string name="id_five">5</string>
+    <string name="title_five">Start of Wudu</string>
+    <string name="english_five">I begin in the name of Allah, who is the Most Merciful, Most Gracious</string>
+    <string name="reference_five">Abu Dawood, Ibn Majah, Ahmed </string>
+    <string name="benefit_five">Abu Hurairah (may Allah be pleased with him) narrates, I heard Rasulullah (peace be upon him) said, My Ummah will be called on the Day of Resurrection with their limbs and faces shining from the traces of Wudu. So whoever amongst you can increase the area of his radiance should do so. (i.e. by performing Wudu regularly)
+[Sahih Bukhari]</string>
+
+    <string name="id_six">6</string>
+    <string name="title_six">Completion of Wudu</string>
+    <string name="english_six"> I testify that there is no one worthy of worship besides Allah. He is all by Himself and has no partner and I testify that Muhammad is Allah’s Rasul (Messenger
+  </string>
+    <string name="reference_six"> Abu Dawood, Ibn Majah, Ahmed </string>
+    <string name="benefit_six">Uthman ibne Affan (may Allah be pleased with him) narrates that Rasulullah (peace be upon him) said, anyone who performs Wudu excellently, his sins will come out from his body, even coming out from under his nails.
+[Muslim] </string>
+
+    <string name="id_seven">7</string>
+    <string name="title_seven">Entering the Mosque</string>
+    <string name="english_seven">In the Name of Allah, and peace and blessings be upon the Messenger of Allah, O Allah, open the doors of mercy </string>
+    <string name="reference_seven">Abu Dawud, Ibn As-Sunan Hadith 888, Al-Albani </string>
+    <string name="benefit_seven">Narrated Abu Qatada Al-Aslami (may Allah be pleased with him) Allah’s Apostle (peace be upon him) said, "If anyone of you enters a mosque, he should pray two Rakah before sitting."
+[Bukhari, vol. 1 Book 8/435] </string>
+
+    <string name="id_eight">8</string>
+    <string name="title_eight">Leaving the Mosque</string>
+    <string name="english_eight">In the Name of Allah, and peace and blessings be upon the Messenger of Allah. O Allah, I ask for Your favor, O Allah, protect me from Satan the outcas </string>
+    <string name="reference_eight">Abu dawood, Sahee Al-Jaami 4591 </string>
+    <string name="benefit_eight">Fatimah (may Allah be pleased with her) reported that when Allah’s Messenger (peace be upon him) entered the mosque, he invoked blessings and peace upon Muhammad (himself) and as he went out of the mosque, he would supplicate for blessings and peace upon Muhammad (himself)
+[Mishkat]</string>
+
+    <string name="id_nine">9</string>
+    <string name="title_nine">Before the Meals</string>
+    <string name="english_nine">In the name of Allah</string>
+    <string name="reference_nine">Abu Dawud 3/437, At-Trimidi 4/288 </string>
+    <string name="benefit_nine">By not reciting Bismillah, Satan has an opportunity of take part in the food.
+[Mishkat] </string>
+
+    <string name="id_ten">10</string>
+    <string name="title_ten">Forgetting to recite Bismillah</string>
+    <string name="english_ten">I In the name of Allah in the beginning and end</string>
+    <string name="reference_ten">Abu Dawud 3/437, At-Trimidi 4/288 </string>
+    <string name="benefit_ten">Aisha (may Allah be pleased with her) reported, Messenger of Allah (peace be upon him) said, “When any of you wants to eat, he should mention the Name of Allah in the beginning, (i.e., say Bismillah) If he forgets to do it in the beginning, he should say (this Dua) </string>
+    <!-- - - - - - - - - - - - - - - -
+     - Used by SunshinePreferences  -
+     - - - - - - - - - - - - - - - -->
+
+    <!-- Label for the location preference -->
+    <string name="pref_location_label">Location</string>
+
+
+    <!-- Key name for storing location in SharedPreferences -->
+    <string name="pref_location_key" translatable="false">location</string>
+
+    <!-- Default postal code for location preference -->
+    <string name="pref_location_default" translatable="false">Bishkek, Kyrgyzstan</string>
+
+    <!-- Label for the temperature units preference -->
+    <string name="pref_units_label">Temperature Units</string>
+
+    <!-- Label for metric option in temperature unit preference -->
+    <string name="pref_units_label_metric">Metric</string>
+
+    <!-- Label for imperial option in temperature unit preference -->
+    <string name="pref_units_label_imperial">Imperial</string>
+
+    <!-- Key name for temperature unit preference in SharedPreferences -->
+    <string name="pref_units_key" translatable="false">units</string>
+
+    <!-- Value in SharedPreferences for metric temperature unit option -->
+    <string name="pref_units_metric" translatable="false">metric</string>
+
+    <!-- Value in SharedPreferences for imperial temperature unit option -->
+    <string name="pref_units_imperial" translatable="false">imperial</string>
+
+    <!-- Strings related to Notification Enabled preference -->
+    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
+    <string name="pref_enable_notifications_label">Weather Notifications</string>
+
+    <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="pref_enable_notifications_false">Not Enabled</string>
+
+    <string name="pref_last_notification">last_notification</string>
+
+
+    <!-- Strings for sort_by preference settings: default is sort by most popular -->
+    <string name="settings_sort_by_label">Sort By</string>
+    <string name="settings_sort_by_key" translatable="false">sort_by</string>
+    <string name="settings_sort_by_default" translatable="false">@string/settings_sort_by_most_popular_label</string>
+
+    <!-- Strings for sort_by highest rating option  -->
+    <string name="settings_sort_by_highest_rating_label">Highest rating</string>
+    <string name="settings_sort_by_highest_rating_value" translatable="false">top_rated?</string>
+
+    <!-- Strings for sort_by most popular option  -->
+    <string name="settings_sort_by_most_popular_label">popular?</string>
+    <string name="settings_sort_by_most_popular_value" translatable="false">popular?</string>
+
+    <!--for preferences-->
+
+    <string name="default_sort">top_rated</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+    <string name="add_new_location">Add new location</string>
+    <string name="location_list">Locations</string>
+    <string name="need_location_permission_message">You need to enable location permissions first</string>
+    <string name="location_permissions_granted_message">Location Permissions Granted</string>
+    <string name="setting_enabled" translatable="false">EnabledSetting</string>
+    <string name="settings_label">Settings</string>
+    <string name="location_permissions">Location Permissions</string>
+    <string name="enable_geofences">Enable Geofences</string>
+    <string name="privacy">http://www.google.com/policies/privacy</string>
+    <string name="ringer_permissions">Ringer Permissions</string>
+    <string name="silent_mode_activated">Silent mode activated</string>
+    <string name="touch_to_relaunch">Touch to launch the app.</string>
+    <string name="back_to_normal">Back to normal</string>
+
+
+    <!-- prayer names -->
+    <string name="fajr">Fajr</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="zuhr">Zuhr</string>
+    <string name="asr">Asr</string>
+    <string name="magreeb">Magreeb</string>
+    <string name="isha">Isha</string>
+
+    <string name="time_remains">Time Remaining</string>
+    <string name="ok">OK</string>
+
+
+    <!-- Label for the calculation method preference -->
+    <string name="pref_method_label">Calculation Method</string>
+
+    <string name="pref_method_label_jafari">Ithna Ashari</string>
+    <string name="pref_method_label_karachi">University of Islamic Sciences, Karachi</string>
+    <string name="pref_method_label_isna">Islamic Society of North America (ISNA)</string>
+    <string name="pref_method_label_mwl">Muslim World League</string>
+    <string name="pref_method_label_qura">Umm al-Qura, Makkah</string>
+    <string name="pref_method_label_egypt">Egyptian General Authority of Survey</string>
+    <string name="pref_method_label_tehran">Institute of Geophysics, University of Tehran</string>
+
+    <!-- Key name for color preference in SharedPreferences -->
+    <string name="pref_method_key" translatable="false">method</string>
+    <string name="pref_method_jafari_value" translatable="false">0</string>
+    <string name="pref_method_karachi_value" translatable="false">1</string>
+    <string name="pref_method_isna_value" translatable="false">2</string>
+    <string name="pref_method_mwl_value" translatable="false">3</string>
+    <string name="pref_method_qura_value" translatable="false">4</string>
+    <string name="pref_method_egypt_value" translatable="false">5</string>
+    <string name="pref_method_tehran_value" translatable="false">6</string>
+
+
+    <!-- Label for the time format preference -->
+    <string name="pref_time_label">Time Format</string>
+
+    <!-- Label for red color preference -->
+    <string name="pref_time_format_lebel_24">24-hour Format</string>
+    <!-- Label for blue color preference -->
+    <string name="pref_time_format_lebel_12">12-hour Format</string>
+
+
+    <!-- Key name for color preference in SharedPreferences -->
+    <string name="pref_time_key" translatable="false">time</string>
+
+    <!-- Value in SharedPreferences for red color option -->
+    <string name="pref_time_format_24_value" translatable="false">0</string>
+
+    <!-- Value in SharedPreferences for blue color option -->
+    <string name="pref_time_format_12_value" translatable="false">1</string>
+
+
+    <!-- Label for the juristic preference -->
+    <string name="pref_juristic_label">Juristic Method</string>
+
+    <!-- Label for red color preference -->
+    <string name="pref_juristic_lebel_shafii">Shafii (standard)</string>
+    <!-- Label for blue color preference -->
+    <string name="pref_juristic_lebel_hanafi">Hanafi</string>
+
+
+    <!-- Key name for color preference in SharedPreferences -->
+    <string name="pref_juristic_key" translatable="false">juristic</string>
+
+    <!-- Value in SharedPreferences for red color option -->
+    <string name="pref_juristic_shafii_value" translatable="false">0</string>
+
+    <!-- Value in SharedPreferences for blue color option -->
+    <string name="pref_juristic_hanafi_value" translatable="false">1</string>
+
+    <string name="hint_minute">Minute</string>
+    <string name="message_minutes">Please Enter Minutes...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="compass_dial">Compass Dial</string>
+    <string name="compass_hands">Compass Hands</string>
+
+
+    <!--Dua Fragment-->
+    <string name="about">About Us</string>
+    <string name="version">version: 1.0.0</string>
+    <string name="find">Find Us</string>
+    <string name="google">Google +</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="telegram">Telegram</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+
+</resources>
