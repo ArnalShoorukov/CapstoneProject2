@@ -70,14 +70,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         date_hijri = (TextView) findViewById(R.id.date_hijri);
 
         setupPermissions();
-        Log.d(TAG+"Coordinate, Oncreate", Double.toString(latitude));
-
         double coord[] =  TimesPreferences.getLocationCoordinates(this);
 
         latitude = coord[0];
         longitude = coord[1];
-        MobileAds.initialize(this);
-      //  LoadAds();
         refreshUI(latitude, longitude);
 
 
@@ -88,23 +84,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     }
 
-
-  /*  private void LoadAds() {
-
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        mAdView.loadAd(adRequest);
-
-       *//* // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mAdView.loadAd(adRequest);*//*
-    }*/
     private void refreshUI(double lat, double lon) {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -142,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         double timezone = defaultTzOffsetMs / (1000 * 60 * 60);
 
 
-        Log.d(TAG + "TimeZone", Double.toString(timezone));
         // Test Prayer times here
         PrayTimes prayers = new PrayTimes();
 
@@ -156,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 getString(R.string.pref_juristic_shafii_value) ));
             Log.d(TAG+"getCalcMethod", Integer.toString(prayers.getCalcMethod()));
         //method.setText(sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_label)));
-        Log.d(TAG+"Methodlabel", sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_mwl_value)));
         String method_number = sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_mwl_value));
 
         String method_label;
@@ -190,23 +167,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ArrayList<String> prayerTimes = prayers.getPrayerTimes(cal,
                 lat, lon, timezone);
 
-        Log.d(TAG+"Coordinate, Refresh", Double.toString(lat));
-
         for(int j=0;j<prayerTimes.size(); j++) {
             Log.d(TAG, prayerTimes.get(j));
         }
-        Log.d(TAG+"Timezone prayertimes", Double.toString(prayers.getTimeZone()));
 
         TimesPreferences.setPrayerTimes(this, prayerTimes);
         ArrayList<String> prayerTimess = new ArrayList<>();
         prayerTimess.clear();
         int size = sharedPreferences.getInt("Status_size", 0);
 
-        for(int i=0;i<size;i++)
-        {
-            prayerTimess.add(sharedPreferences.getString("Status_" + i, null));
-            Log.d(TAG+"Shared pref prayertimes", prayerTimess.get(i));
-        }
 
 
         fajr.setText(prayerTimes.get(FAJR));
@@ -349,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     /**
-     * App Permissions for Audio
+     * App Permissions for Location
      **/
     private void setupPermissions() {
         // If we don't have the record audio permission...
