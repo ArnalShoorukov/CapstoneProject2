@@ -153,9 +153,9 @@ public class DuaContentProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String selection, @Nullable String[] selectionArgs) {
         if (contentValues.containsKey(DuaEntry.COLUMN_DUA_ID)) {
-            String movieId = contentValues.getAsString(DuaEntry.COLUMN_DUA_ID);
-            if (movieId == null) {
-                throw new IllegalArgumentException("Movie reques an ID");
+            String duaId = contentValues.getAsString(DuaEntry.COLUMN_DUA_ID);
+            if (duaId == null) {
+                throw new IllegalArgumentException("Dua request an ID");
             }
         }
         // Do not update if there are no values to update

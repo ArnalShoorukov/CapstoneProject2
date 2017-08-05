@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -16,19 +14,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.mosquefinder.arnal.prayertimesapp.data.TimesPreferences;
-import com.mosquefinder.arnal.prayertimesapp.sync.TimerService;
 
 import net.alqs.iclib.hijri.UmmQura;
 import net.alqs.iclib.qibla.Qibla;
@@ -39,38 +36,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private final String TAG = MainActivity.class.getSimpleName();
     private static final int PERMISSIONS_REQUEST_FINE_LOCATION = 111;
     private static final int PLACE_PICKER_REQUEST = 1;
     double latitude, longitude ;
-    int METHOD;
-    long timezone;
-    TextView city,text1, fajr, sunrise, zuhr, asr, magreeb, isha, date_geo, date_hijri, next_prayer;
-    ImageView fajr_not, sunrise_not, zuhr_not,asr_not, magreeb_not, isha_not;
+    TextView city,method, fajr, sunrise, zuhr, asr, magreeb, isha, date_geo, date_hijri, next_prayer;
     private static int FAJR = 0;
     private static int SUNRISE = 1;
     private static int ZUHR = 2;
     private static int ASR = 3;
     private static int MAGREEB = 4;
     private static int ISHA = 6;
-
-    private Handler handler;
-    private Runnable runnable;
-    Date futureDate;
-    Date currentDate;
-
-    long diff;
-    long days;
-    long hours;
-    long minutes;
-    long seconds;
-    private long timeCountInMilliSeconds = 1 * 60000;
-    private ProgressBar progressBarCircle;
-    private TextView textViewTime;
-    private CountDownTimer countDownTimer;
 
 
     @Override
@@ -79,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.prayer_main_activity);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Stetho.initializeWithDefaults(this);
-      //  text1 = (TextView) findViewById(R.id.time_left);
         city = (TextView) findViewById(R.id.city);
         fajr = (TextView) findViewById(R.id.fajr_time);
         sunrise = (TextView) findViewById(R.id.sunrise_time);
@@ -87,18 +64,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         asr = (TextView) findViewById(R.id.asr_time);
         magreeb = (TextView)findViewById(R.id.magreeb_time);
         isha = (TextView) findViewById(R.id.isha_time);
+        method = (TextView) findViewById(R.id.calculation_method);
 
         date_geo = (TextView) findViewById(R.id.date_geo);
         date_hijri = (TextView) findViewById(R.id.date_hijri);
-       // next_prayer = (TextView) findViewById(R.id.prayer);
-
-        fajr_not = (ImageView)findViewById(R.id.fajr_not);
-        sunrise_not = (ImageView)findViewById(R.id.sunrise_not);
-        zuhr_not = (ImageView)findViewById(R.id.zuhr_not);
-        asr_not = (ImageView)findViewById(R.id.asr_not);
-        magreeb_not = (ImageView)findViewById(R.id.magreeb_not);
-        isha_not = (ImageView)findViewById(R.id.isha_not);
-        initViews();
 
         setupPermissions();
         Log.d(TAG+"Coordinate, Oncreate", Double.toString(latitude));
@@ -107,82 +76,41 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         latitude = coord[0];
         longitude = coord[1];
-
+        MobileAds.initialize(this);
+      //  LoadAds();
         refreshUI(latitude, longitude);
-        setTimerValues();
-        startCountDownTimer();
-        startService(new Intent(this,TimerService.class));
+
+
+
+
         // Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
 
 
-    /**
-     * method to initialize the values for count down timer
-     */
-    private void setTimerValues() {
-        int time = 2;
+  /*  private void LoadAds() {
 
-        // assigning values after converting to milliseconds
-        timeCountInMilliSeconds = time * 60 * 1000;
-        Log.d(TAG +"SetTimerValues", Long.toString(timeCountInMilliSeconds));
-    }
-    /**
-     * method to start count down timer
-     */
-    private void startCountDownTimer() {
+        AdView mAdView = (AdView) findViewById(R.id.adView);
 
-        countDownTimer = new CountDownTimer(timeCountInMilliSeconds, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-                textViewTime.setText(hmsTimeFormatter(millisUntilFinished));
+        mAdView.loadAd(adRequest);
 
-                progressBarCircle.setProgress((int) (millisUntilFinished / 1000));
-                Log.d(TAG+ "Inside OnTick", Long.toString(timeCountInMilliSeconds));
-            }
-
-            @Override
-            public void onFinish() {
-
-
-                // call to initialize the progress bar values
-               setProgressBarValues();
-                Log.d(TAG+"OnFinish before newTime", Long.toString(timeCountInMilliSeconds));
-                timeCountInMilliSeconds = newTime();
-                Log.d(TAG+"OnFinish after newTime", Long.toString(timeCountInMilliSeconds));
-                this.start();
-                //textViewTime.setText(hmsTimeFormatter(timeCountInMilliSeconds));
-            }
-
-        }.start();
-        countDownTimer.start();
-    }
-
-    private long newTime() {
-        int newTime = 1;
-        timeCountInMilliSeconds = newTime * 60 * 1000;
-        Log.d(TAG, Long.toString(timeCountInMilliSeconds));
-        return timeCountInMilliSeconds;
-    }
-
-    private void initViews() {
-        progressBarCircle = (ProgressBar) findViewById(R.id.progressBarCircle);
-        textViewTime = (TextView) findViewById(R.id.textViewTime);
-    }
-    private void setProgressBarValues() {
-
-        progressBarCircle.setMax((int) timeCountInMilliSeconds / 1000);
-        progressBarCircle.setProgress((int) timeCountInMilliSeconds / 1000);
-    }
+       *//* // Create an ad request. Check logcat output for the hashed device ID to
+        // get test ads on a physical device. e.g.
+        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);*//*
+    }*/
     private void refreshUI(double lat, double lon) {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         city.setText(sharedPreferences.getString(getString(R.string.pref_location_key),
                 getString(R.string.pref_location_default)));
-        Log.d(TAG+"LocationLabel", sharedPreferences.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default)));
 
 
         Calendar calendar = Calendar.getInstance();
@@ -226,7 +154,31 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 getString(R.string.pref_juristic_shafii_value) )));
         Log.d(TAG + "Preferences", sharedPreferences.getString(getString(R.string.pref_juristic_key),
                 getString(R.string.pref_juristic_shafii_value) ));
+            Log.d(TAG+"getCalcMethod", Integer.toString(prayers.getCalcMethod()));
+        //method.setText(sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_label)));
+        Log.d(TAG+"Methodlabel", sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_mwl_value)));
+        String method_number = sharedPreferences.getString(getString(R.string.pref_method_key), getString(R.string.pref_method_mwl_value));
 
+        String method_label;
+        switch (method_number){
+            case "0":method_label = getString(R.string.pref_method_label_jafari);
+                break;
+            case "1":method_label = getString(R.string.pref_method_label_karachi);
+                break;
+            case "2":method_label = getString(R.string.pref_method_label_isna);
+                break;
+            case "3":method_label = getString(R.string.pref_method_label_mwl);
+                break;
+            case "4":method_label = getString(R.string.pref_method_label_qura);
+                break;
+            case "5":method_label = getString(R.string.pref_method_label_egypt);
+                break;
+            case "6":method_label = getString(R.string.pref_method_label_tehran);
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid day of the week: " + method_number);
+        }
+        method.setText(method_label);
         prayers.setAdjustHighLats(prayers.AngleBased);
         int[] offsets = {0, 0, 0, 0, 0, 0, 0}; // {Fajr,Sunrise,Dhuhr,Asr,Sunset,Maghrib,Isha}
         prayers.tune(offsets);
@@ -246,8 +198,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Log.d(TAG+"Timezone prayertimes", Double.toString(prayers.getTimeZone()));
 
         TimesPreferences.setPrayerTimes(this, prayerTimes);
-       // ArrayList<String> prayerTimess = null;
-
         ArrayList<String> prayerTimess = new ArrayList<>();
         prayerTimess.clear();
         int size = sharedPreferences.getInt("Status_size", 0);
@@ -313,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         return super.onOptionsItemSelected(item);
     }
 
-    private void openPreferredLocationInMap() {
+    public void openPreferredLocationInMap() {
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -370,19 +320,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     }
 
-
-
-    public void onRingerPermissionsClicked(View view) {
-        Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-        startActivity(intent);
-    }
-
-    public void onLocationPermissionClicked(View view) {
-        ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                PERMISSIONS_REQUEST_FINE_LOCATION);
-    }
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.pref_location_key))) {
@@ -425,7 +362,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
         } else {
             // Otherwise, permissions were granted and we are ready to go!
-            //mAudioInputReader = new AudioInputReader(mVisualizerView, this);
         }
     }
 
@@ -440,7 +376,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     //mAudioInputReader = new AudioInputReader(mVisualizerView, this);
 
                 } else {
-                    Toast.makeText(this, "Permission for audio not granted. Visualizer can't run.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Permission for location not granted.", Toast.LENGTH_LONG).show();
                     finish();
                     // The permission was denied, so we can show a message why we can't run the app
                     // and then close the app.
@@ -450,81 +386,4 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         }
     }
-
-    public void countDownStart() {
-        handler = new Handler();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                handler.postDelayed(this, 1000);
-                try {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-
-                    futureDate = dateFormat.parse("23:00:01");
-                    currentDate = new Date();
-                    if (!currentDate.after(futureDate)) {
-                        diff = futureDate.getTime()
-                                - currentDate.getTime();
-                        days = diff / (24 * 60 * 60 * 1000);
-                        diff -= days * (24 * 60 * 60 * 1000);
-                        hours = diff / (60 * 60 * 1000);
-                        diff -= hours * (60 * 60 * 1000);
-                        minutes = diff / (60 * 1000);
-                        diff -= minutes * (60 * 1000);
-                        seconds = diff / 1000;
-
-
-                       /* txtTimerDay.setText("" + String.format("%02d", days));
-                        txtTimerHour.setText("" + String.format("%02d", hours));
-                        txtTimerMinute.setText(""+ String.format("%02d", minutes));
-                        txtTimerSecond.setText(""+ String.format("%02d", seconds));*/
-                        next_prayer.setText("" +String.format("%02d", hours) +String.format("%02d", minutes) + String.format("%02d", seconds) );
-
-                      /*  NotificationCompat.Builder builder =
-                                new NotificationCompat.Builder(c)
-                                        .setSmallIcon(R.drawable.ic_launcher)
-                                        .setContentTitle("Notifications Example")
-                                        .setContentText(Long.toString(days) + " - "+ Long.toString(hours) +" - "+ Long.toString(minutes) + " - " +
-                                         Long.toString(seconds));
-                        Intent notificationIntent = new Intent(c, MainActivity.class);
-                        PendingIntent contentIntent = PendingIntent.getActivity(c, 0, notificationIntent,
-                                PendingIntent.FLAG_UPDATE_CURRENT);
-                        builder.setContentIntent(contentIntent);
-                        // Add as notification
-                        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        manager.notify(0, builder.build());
-*/
-
-                    } else {
-                       /* tvEvent.setVisibility(View.VISIBLE);
-                        tvEvent.setText("The event started!");
-                        textViewGone();*/
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        handler.postDelayed(runnable, 1 * 1000);
-    }
-
-
-    /**
-     * method to convert millisecond to time format
-     *
-     * @param milliSeconds
-     * @return HH:mm:ss time formatted string
-     */
-    private String hmsTimeFormatter(long milliSeconds) {
-
-        String hms = String.format("%02d:%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(milliSeconds),
-                TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
-                TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
-
-        return hms;
-
-
-    }
-
 }

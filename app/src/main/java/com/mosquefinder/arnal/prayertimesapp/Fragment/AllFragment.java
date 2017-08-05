@@ -3,12 +3,12 @@ package com.mosquefinder.arnal.prayertimesapp.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +29,6 @@ public class AllFragment extends Fragment {
     private TitleAdapter titleAdapter;
     private LinearLayoutManager mLayoutManager;
     private static final String TAG = AllFragment.class.getSimpleName();
-
     public static List<Dua> nameList = new ArrayList<>();
     public AllFragment() {
         // Required empty public constructor
@@ -39,6 +38,8 @@ public class AllFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         final List<Dua> titleList = new ArrayList<>();
         View rootView = inflater.inflate(R.layout.fragment_all, container, false);
@@ -58,8 +59,6 @@ public class AllFragment extends Fragment {
         titleAdapter.setDuaList(titleList);
 
         mLayoutManager = new GridLayoutManager(getContext(), 1);
-
-        //titleAdapter = new TitleAdapter(getContext(), nameList);
         RecyclerView recyclerView = (RecyclerView)rootView.findViewById(R.id.dua_recycler_view);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(titleAdapter);
@@ -71,17 +70,33 @@ public class AllFragment extends Fragment {
         titleAdapter.setListener(new TitleAdapter.Listener() {
             @Override
             public void onClick(int position) {
-
                 Dua response = nameList.get(position);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("object" , response );
-                Intent intent = new Intent(getContext(), DetailDuaActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                bundle.putParcelable("object", response);
+
+                    Intent intent = new Intent(getContext(), DetailDuaActivity.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+
             }
         });
-
         return rootView;
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
     }
 
 }

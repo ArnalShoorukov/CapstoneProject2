@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mosquefinder.arnal.prayertimesapp.DetailDuaActivity;
 import com.mosquefinder.arnal.prayertimesapp.R;
 import com.mosquefinder.arnal.prayertimesapp.database.DuaContract.DuaEntry;
 
@@ -37,6 +37,7 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
     ImageView mFavouriteIcon;
     TextView mFavouriteTextView;
     LinearLayout favouriteView;
+    int getColDuaAudio = 0;
 
     public static final String DUA_URI = "URI";
 
@@ -77,7 +78,7 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
     }
 
 
-    private MediaPlayer mediaplayer;
+    private MediaPlayer player;
     private AudioManager mAudioManager;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -97,11 +98,11 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
                 // both cases the same way because our app is playing short sound files.
                 // Pause playback and reset player to the start of the file. That way, we can
                 // play the word from the beginning when we resume playback.
-                mediaplayer.pause();
-                mediaplayer.seekTo(0);
+                player.pause();
+                player.seekTo(0);
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
-                mediaplayer.start();
+                player.start();
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 // The AUDIOFOCUS_LOSS case means we've lost audio focus and
                 // Stop playback and clean up resources
@@ -127,7 +128,7 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_favourite_detail, container, false);
         // Create and setup the {@link AudioManager} to request audio focus
-        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
         mContentResolver = getActivity().getContentResolver();
 
         title = (TextView) rootView.findViewById(R.id.title_dua);
@@ -162,7 +163,7 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(Loader<Cursor> loader, final Cursor data) {
         if (data != null && data.moveToFirst()) {
             final String duaId = data.getString(COL_DUA_ID);
             final String duaTitle = data.getString(COL_DUA_TITLE);
@@ -180,8 +181,10 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
             final  String benefitText = data.getString(COL_DUA_BENEFIT);
             benefit.setText(benefitText);
 
-            final int audioResource = data.getInt(COL_DUA_AUDIO);
+            final int audioResource = data.getInt(6);
+             getColDuaAudio = data.getInt(COL_DUA_AUDIO);
 
+            Log.d("AudioSource", Integer.toString(data.getInt(COL_DUA_AUDIO)));
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -196,14 +199,15 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
                         // We have audio focus now.
                         // Create and setup the {@link MediaPlayer} for the audio resource associated
                         // with the current word
-                        mediaplayer = MediaPlayer.create(getActivity().getApplicationContext(), audioResource);
-
+                        Log.d("AudioSourceInsideFromDB", Integer.toString(data.getInt(7)));
+                        Log.d("AudioSourceInside", Integer.toString(R.raw.dua_first));
+                        player = MediaPlayer.create(getActivity().getBaseContext(), audioResource);
                         // Start the audio file
-                        mediaplayer.start();
+                        player.start();
 
                         // Setup a listener on the media player, so that we can stop and release the
                         // media player once the sound has finished playing.
-                        mediaplayer.setOnCompletionListener(mCompletionListener);
+                        player.setOnCompletionListener(mCompletionListener);
                     }
 
                 }
@@ -258,14 +262,14 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
 
     private void releaseMediaPlayer() {
         // If the media player is not null, then it may be currently playing a sound.
-        if (mediaplayer!= null) {
+        if (player != null) {
             // Regardless of the current state of the media player, release its resources
             // because we no longer need it.
-            mediaplayer.release();
+            player.release();
             // Set the media player back to null. For our code, we've decided that
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
-            mediaplayer = null;
+            player = null;
             // Regardless of whether or not we were granted audio focus, abandon it. This also
             // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);

@@ -42,44 +42,11 @@ public class DuaAdapter extends ArrayAdapter<Dua> {
         // Get the {@link Word} object located at this position in the list
         Dua currentWord = getItem(position);
 
-// Find the TextView in the list_item.xml layout with the ID version_name
         TextView title = (TextView) listItemView.findViewById(R.id.title_dua);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         title.setText(currentWord.getmTitle());
 
-      /*  // Find the TextView in the list_item.xml layout with the ID version_name
-        TextView translation = (TextView) listItemView.findViewById(R.id.translation_text);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
-        translation.setText(currentWord.getEnglish());
-
-        // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView referenceTextView = (TextView) listItemView.findViewById(R.id.reference_text);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
-        referenceTextView.setText(currentWord.getReference());
-
-        // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView benefitTextView = (TextView) listItemView.findViewById(R.id.benefit_text);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
-        benefitTextView.setText(currentWord.getBenefit());
-
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-        ImageView duaImage = (ImageView) listItemView.findViewById(R.id.arabic);
-
-        duaImage.setImageResource(currentWord.getImageResourceID());
-*/
-
-
-
-        // Set the theme color for the list item
-        View textContainer = listItemView.findViewById(R.id.text_container);
-        // Find the color that the resource ID maps to
-      //  int color = ContextCompat.getColor(getContext(), mColorResourceID);
-        // Set the background color of the text container View
-     //   textContainer.setBackgroundColor(color);
 
 
 

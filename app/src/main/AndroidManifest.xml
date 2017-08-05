@@ -40,19 +40,12 @@
         </activity>
         <activity
             android:name=".QiblaActivity"
-            android:label="@string/qibla">
+            android:label="@string/qibla"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-        <service
-            android:name=".sync.TimesSyncIntentService"
-            android:exported="false" />
-        <service
-            android:name=".sync.TimerService"
-            android:enabled="true"
-            android:exported="true" />
 
         <activity
             android:name=".AboutActivity"
@@ -112,6 +105,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NamesActivity" />
         </activity>
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
     </application>
 
 </manifest>

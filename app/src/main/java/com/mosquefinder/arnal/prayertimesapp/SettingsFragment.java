@@ -10,7 +10,7 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 
 import com.mosquefinder.arnal.prayertimesapp.data.TimesPreferences;
-import com.mosquefinder.arnal.prayertimesapp.sync.TimesSyncUtils;
+
 
 /**
  * Created by arnal on 7/16/17.
@@ -43,7 +43,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             // we've changed the location
             // Wipe out any potential PlacePicker latlng values so that we can use this text entry.
             TimesPreferences.resetLocationCoordinates(activity);
-            TimesSyncUtils.startImmediateSync(activity);
         } else if (key.equals(getString(R.string.pref_units_key))) {
             // units have changed. update lists of weather entries accordingly
            // activity.getContentResolver().notifyChange(WeatherContract.WeatherEntry.CONTENT_URI, null);

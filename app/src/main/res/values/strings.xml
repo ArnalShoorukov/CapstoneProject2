@@ -12,6 +12,8 @@
     <!-- Used to open Settings Menu from MainActivity and DetailActivity -->
     <string name="action_settings">Settings</string>
 
+    <string name="today">Today</string>
+
 
     <!--Dua Fragment-->
     <string name="dua">Daily Supplications</string>
@@ -22,7 +24,7 @@
     <string name="favourited">Favourite</string>
     <string name="mark_as_favourite">Mark As Favourite</string>
 
-    <string name="empty_favourite_gridview_message">Add some of your favourite movies here.</string>
+    <string name="empty_favourite_gridview_message">Add some of your favourite suplication here.</string>
 
 
     <!-- String english, String reference,String benefit-->
@@ -277,5 +279,7 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
 
-
+    <string name="banner_ad_unit_id">ca-app-pub-8100392549328812/9678202561</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-8100392549328812/6441842747</string>
+    <string name="interstitial_error">Interstitial ad failed to load.</string>
 </resources>

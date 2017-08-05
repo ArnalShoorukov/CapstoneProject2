@@ -28,7 +28,6 @@ import static android.content.Context.SENSOR_SERVICE;
  */
 public class CompassFragment extends Fragment implements SensorEventListener{
     private static final String TAG = "CompassActivity";
-   // private Compasss compass;
 // define the display assembly compass picture
    private ImageView image;
     double latitude, longitude ;
@@ -55,9 +54,6 @@ public class CompassFragment extends Fragment implements SensorEventListener{
         image = (ImageView) rootView.findViewById(R.id.imageViewCompass);
 
 
-
-        // TextView that will tell the user what degree is he heading
-        ImageView arrowView = (ImageView) rootView.findViewById(R.id.main_image_hands);
         tvHeading = (TextView) rootView.findViewById(R.id.tvHeading);
         double coord[] =  TimesPreferences.getLocationCoordinates(getActivity());
 
@@ -67,14 +63,12 @@ public class CompassFragment extends Fragment implements SensorEventListener{
         Log.d(TAG, Double.toString(Qibla.findDirection(latitude, longitude)));
         double qibla = Qibla.findDirection(latitude, longitude);
          f = (float) qibla;
-       arrowView.setImageResource(R.drawable.hands);
           f = Math.round(f);
         Log.d(TAG, Float.toString(currentDegree));
 
         // initialize your android device sensor capabilities
 
         mSensorManager = (SensorManager)getContext().getSystemService(SENSOR_SERVICE);
-
 
         return rootView;
     }
@@ -88,7 +82,6 @@ public class CompassFragment extends Fragment implements SensorEventListener{
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
 
                 SensorManager.SENSOR_DELAY_GAME);
-
     }
     @Override
     public void onPause() {
@@ -131,34 +124,8 @@ public class CompassFragment extends Fragment implements SensorEventListener{
 
     }
 
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
-  /*  @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "start compass");
-        compass.start();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compass.stop();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compass.start();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d(TAG, "stop compass");
-        compass.stop();
-    }*/
 }

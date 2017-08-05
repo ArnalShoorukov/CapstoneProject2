@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "883801259167",
+    "firebase_url": "https://udacity-maps-project-147607.firebaseio.com",
+    "project_id": "udacity-maps-project-147607",
+    "storage_bucket": "udacity-maps-project-147607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883801259167:android:6df94d607bb34afc",
+        "android_client_info": {
+          "package_name": "com.mosquefinder.arnal.prayertimesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883801259167-8rva05lc1oq2fpthvbhheiukgu38oab9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDvDKfzDC6O3qGqruix_C-NdPnsbjA1T8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

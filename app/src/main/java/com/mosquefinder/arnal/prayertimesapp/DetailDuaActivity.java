@@ -143,7 +143,7 @@ public class DetailDuaActivity extends AppCompatActivity {
             favouriteView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String idMovie = dua.getId();
+                    String idDua = dua.getId();
 
                     String favouriteText = mFavouriteTextView.getText().toString();
 
@@ -158,7 +158,7 @@ public class DetailDuaActivity extends AppCompatActivity {
                         mContentResolver.delete(
                                 DuaEntry.CONTENT_URI,
                                 DuaEntry.COLUMN_DUA_ID + "=?",
-                                new String[]{idMovie}
+                                new String[]{idDua}
                         );
 
                         // Update favourite icon and text
