@@ -203,6 +203,7 @@
     <string name="quran_text_desired">Please Enter Page Number</string>
     <string name="go_to_page">Go To Page</string>
     <string name="hint">1 - 604</string>
+    <string name="network_unavailable">Network Unavailable</string>
 
 
     <string name="fajr_time">03:16</string>

@@ -61,17 +61,11 @@ public class AyahAdapter extends RecyclerView.Adapter<AyahAdapter.ViewHolder> {
         ViewHolder view = new ViewHolder(inflate);
         return view;
 
-      /*  View inflate = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.names_cardview, parent, false);
-
-        NamesAdapter.ViewHolder view = new NamesAdapter.ViewHolder(inflate);
-        return view;*/
     }
 
     @Override
     public void onBindViewHolder(AyahAdapter.ViewHolder holder, final int position) {
         Ayah ayah = ayahList.get(position);
-        //  ayah.getSurah().getEnglishName();
         final TextView textView = holder.nameSurah;
         textView.setText(ayah.getSurah().getEnglishName());
 
@@ -81,10 +75,6 @@ public class AyahAdapter extends RecyclerView.Adapter<AyahAdapter.ViewHolder> {
         final TextView quranText = holder.qurantext;
         quranText.setText(ayah.getText());
 
-       /* for (int i=0; i<ayahList.size(); i++){
-            quranText.setText(ayahList.get(i).getText());
-            Log.d("Adapter", ayahList.get(i).getText());
-        }*/
     }
 
     @Override
