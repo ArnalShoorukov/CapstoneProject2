@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Bishkek, Kyrgyzstan"
         android:textColor="@color/colorBlack"
         android:layout_margin="16dp"
         android:background="@color/colorBlueLight"/>
@@ -30,22 +29,22 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calculation Method"
-                android:textSize="10sp"
+                android:text="@string/pref_method_label"
+                android:textSize="12sp"
                 android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/calculation_method"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Umm al_Qurra, Makkah"
+                android:text="@string/pref_method_label_qura"
                 android:textColor="@color/colorBlack"
-                android:textSize="10sp"/>
+                android:textSize="12sp" />
 
 
 
@@ -61,7 +60,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Today"
+                android:text="@string/today"
                 android:textSize="12sp"
                 android:textColor="@color/colorWhite"
                 android:layout_marginRight="4dp"
@@ -71,21 +70,19 @@
                 android:id="@+id/date_geo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1438-11.12"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
-                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
                 android:gravity="end"/>
 
             <TextView
                 android:id="@+id/date_hijri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2017-06-12"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
                 android:layout_marginRight="4dp"
-                android:gravity="right"/>
+                android:gravity="end" />
         </LinearLayout>
 
     </LinearLayout>

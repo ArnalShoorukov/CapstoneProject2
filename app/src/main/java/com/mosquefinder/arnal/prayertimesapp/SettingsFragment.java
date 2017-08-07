@@ -43,9 +43,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             // we've changed the location
             // Wipe out any potential PlacePicker latlng values so that we can use this text entry.
             TimesPreferences.resetLocationCoordinates(activity);
-        } else if (key.equals(getString(R.string.pref_units_key))) {
-            // units have changed. update lists of weather entries accordingly
-           // activity.getContentResolver().notifyChange(WeatherContract.WeatherEntry.CONTENT_URI, null);
         }
         Preference preference = findPreference(key);
         if (null != preference) {

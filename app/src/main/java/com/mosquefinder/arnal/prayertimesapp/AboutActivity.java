@@ -25,14 +25,14 @@ public class AboutActivity extends AppCompatActivity {
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutActivity.this, "Welcome to our Google +", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getString(R.string.welcome_google), Toast.LENGTH_SHORT).show();
             }
         });
 
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutActivity.this, "Welcome to our Facebook", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getString(R.string.welcome_facebook), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -40,7 +40,7 @@ public class AboutActivity extends AppCompatActivity {
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutActivity.this, "Welcome to our Twitter", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getString(R.string.welcome_twitter), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -48,7 +48,7 @@ public class AboutActivity extends AppCompatActivity {
         telegram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutActivity.this, "Welcome to our Telegram", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getString(R.string.welcome_telegram), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -56,7 +56,7 @@ public class AboutActivity extends AppCompatActivity {
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutActivity.this, "Welcome to our WhatsApp", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getString(R.string.welcome_whatsapp), Toast.LENGTH_SHORT).show();
 
             }
         });

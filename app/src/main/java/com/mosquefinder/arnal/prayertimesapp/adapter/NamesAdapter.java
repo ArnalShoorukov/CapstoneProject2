@@ -2,13 +2,10 @@ package com.mosquefinder.arnal.prayertimesapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.mosquefinder.arnal.prayertimesapp.R;
 import com.mosquefinder.arnal.prayertimesapp.data.Names;
 
@@ -21,7 +18,6 @@ import java.util.List;
 
 public class NamesAdapter  extends RecyclerView.Adapter<NamesAdapter.ViewHolder>{
     private Listener listener;
-    private Context context;
     private List<Names> namesList;
 
     public interface Listener {
@@ -37,7 +33,6 @@ public class NamesAdapter  extends RecyclerView.Adapter<NamesAdapter.ViewHolder>
         notifyDataSetChanged();
     }
     public NamesAdapter(Context context, List<Names> nameList) {
-        this.context = context;
         this.namesList = new ArrayList<>();
     }
 

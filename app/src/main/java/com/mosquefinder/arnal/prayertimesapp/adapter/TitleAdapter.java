@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mosquefinder.arnal.prayertimesapp.Fragment.AllFragment;
 import com.mosquefinder.arnal.prayertimesapp.R;
 import com.mosquefinder.arnal.prayertimesapp.data.Dua;
 
@@ -21,7 +20,6 @@ import java.util.List;
 
 public class TitleAdapter  extends RecyclerView.Adapter<TitleAdapter.ViewHolder>{
     private Listener listener;
-    private Context context;
     private List<Dua> titleList;
 
     public interface Listener {
@@ -37,7 +35,7 @@ public class TitleAdapter  extends RecyclerView.Adapter<TitleAdapter.ViewHolder>
         notifyDataSetChanged();
     }
     public TitleAdapter(Context context, List<Dua> nameList) {
-        this.context = context;
+        Context context1 = context;
         this.titleList = new ArrayList<>();
     }
 

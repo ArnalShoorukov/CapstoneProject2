@@ -28,6 +28,7 @@
         android:layout_height="320dp"
         android:layout_centerInParent="true"
         android:layout_below="@+id/tvHeading"
+        android:contentDescription="@string/description_compass"
         android:src="@drawable/dualcompassrose" />
 
 </RelativeLayout>

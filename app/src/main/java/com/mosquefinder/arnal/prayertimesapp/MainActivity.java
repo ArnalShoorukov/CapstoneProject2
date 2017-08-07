@@ -18,9 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
@@ -42,13 +39,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final int PERMISSIONS_REQUEST_FINE_LOCATION = 111;
     private static final int PLACE_PICKER_REQUEST = 1;
     double latitude, longitude ;
-    TextView city,method, fajr, sunrise, zuhr, asr, magreeb, isha, date_geo, date_hijri, next_prayer;
-    private static int FAJR = 0;
-    private static int SUNRISE = 1;
-    private static int ZUHR = 2;
-    private static int ASR = 3;
-    private static int MAGREEB = 4;
-    private static int ISHA = 6;
+    TextView city, method, fajr, sunrise, zuhr, asr, magreeb, isha, date_geo, date_hijri;
 
 
     @Override
@@ -177,12 +168,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         int size = sharedPreferences.getInt("Status_size", 0);
 
 
-
+        int FAJR = 0;
         fajr.setText(prayerTimes.get(FAJR));
+        int SUNRISE = 1;
         sunrise.setText(prayerTimes.get(SUNRISE));
+        int ZUHR = 2;
         zuhr.setText(prayerTimes.get(ZUHR));
+        int ASR = 3;
         asr.setText(prayerTimes.get(ASR));
+        int MAGREEB = 4;
         magreeb.setText(prayerTimes.get(MAGREEB));
+        int ISHA = 6;
         isha.setText(prayerTimes.get(ISHA));
         Log.d(TAG, Double.toString(Qibla.findDirection(lat, lon)));
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
@@ -213,6 +209,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         if (id == R.id.find_direction) {
             startActivity(new Intent(this, QiblaActivity.class));
+            return true;
+        }
+        if (id == R.id.quran) {
+            startActivity(new Intent(this, QuranActivity.class));
             return true;
         }
         if (id == R.id.dua_activity) {
@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(getString(R.string.pref_location_key),placeAddress);
-            editor.commit();
+            editor.apply();
 
             TimesPreferences.setLocationDetails(this, place.getLatLng().latitude, place.getLatLng().longitude);
 
@@ -345,7 +345,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     //mAudioInputReader = new AudioInputReader(mVisualizerView, this);
 
                 } else {
-                    Toast.makeText(this, "Permission for location not granted.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_LONG).show();
                     finish();
                     // The permission was denied, so we can show a message why we can't run the app
                     // and then close the app.

@@ -46,7 +46,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".AboutActivity"
             android:label="@string/about">
@@ -99,7 +98,8 @@
                 android:resource="@xml/simple_widget_info" />
         </receiver>
 
-        <activity android:name=".DetailNamesActivity"
+        <activity
+            android:name=".DetailNamesActivity"
             android:label="@string/names">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -109,7 +109,22 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-
+        <activity
+            android:name=".QuranActivity"
+            android:label="@string/title_activity_quran"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mosquefinder.arnal.prayertimesapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DetailQuranActivity"
+            android:label="@string/quran">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".QuranActivity" />
+        </activity>
     </application>
 
 </manifest>

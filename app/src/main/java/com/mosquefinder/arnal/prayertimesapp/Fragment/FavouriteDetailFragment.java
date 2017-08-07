@@ -37,7 +37,6 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
     ImageView mFavouriteIcon;
     TextView mFavouriteTextView;
     LinearLayout favouriteView;
-    int getColDuaAudio = 0;
 
     public static final String DUA_URI = "URI";
 
@@ -182,7 +181,7 @@ public class FavouriteDetailFragment extends Fragment implements LoaderManager.L
             benefit.setText(benefitText);
 
             final int audioResource = data.getInt(6);
-             getColDuaAudio = data.getInt(COL_DUA_AUDIO);
+
 
             Log.d("AudioSource", Integer.toString(data.getInt(COL_DUA_AUDIO)));
             image.setOnClickListener(new View.OnClickListener() {

@@ -26,8 +26,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AllFragment extends Fragment {
-    private TitleAdapter titleAdapter;
-    private LinearLayoutManager mLayoutManager;
+
     private static final String TAG = AllFragment.class.getSimpleName();
     public static List<Dua> nameList = new ArrayList<>();
     public AllFragment() {
@@ -55,10 +54,10 @@ public class AllFragment extends Fragment {
         titleList.add(new Dua(getString(R.string.id_ten), getString(R.string.title_ten),getString(R.string.english_ten),getString(R.string.reference_ten),getString(R.string.benefit_ten),R.raw.dua_ten, R.drawable.d10));
         nameList = titleList;
 
-        titleAdapter = new TitleAdapter(getContext(), nameList);
+        TitleAdapter titleAdapter = new TitleAdapter(getContext(), nameList);
         titleAdapter.setDuaList(titleList);
 
-        mLayoutManager = new GridLayoutManager(getContext(), 1);
+        LinearLayoutManager mLayoutManager = new GridLayoutManager(getContext(), 1);
         RecyclerView recyclerView = (RecyclerView)rootView.findViewById(R.id.dua_recycler_view);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(titleAdapter);

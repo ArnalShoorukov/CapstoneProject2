@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:gravity="center"
+            android:contentDescription="@string/description_names"
             />
     </LinearLayout>
 

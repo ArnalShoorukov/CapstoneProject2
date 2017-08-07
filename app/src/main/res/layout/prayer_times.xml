@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlueLight"
@@ -24,7 +24,7 @@
             style="@style/prayer_times"
             android:gravity="end"
             android:paddingEnd="16dp"
-            android:text="03.16" />
+            android:text="@string/fajr_time" />
 
        <!-- <ImageView
             android:id="@+id/fajr_not"
@@ -53,7 +53,7 @@
             style="@style/prayer_times"
             android:gravity="end"
             android:paddingEnd="16dp"
-            android:text="05.30" />
+            android:text="@string/sunrise_time" />
 
        <!-- <ImageView
             android:id="@+id/sunrise_not"
@@ -81,7 +81,7 @@
             android:id="@+id/zuhr_time"
             style="@style/prayer_times"
             android:gravity="end"
-            android:text="13.06"
+            android:text="@string/zuhr_time"
             android:paddingEnd="16dp"/>
 
       <!--  <ImageView
@@ -112,7 +112,7 @@
             android:id="@+id/asr_time"
             style="@style/prayer_times"
             android:gravity="end"
-            android:text="17.00"
+            android:text="@string/asr_time"
             android:paddingEnd="16dp" />
 
        <!-- <ImageView
@@ -141,7 +141,7 @@
             android:id="@+id/magreeb_time"
             style="@style/prayer_times"
             android:gravity="end"
-            android:text="20.43"
+            android:text="@string/magreeb_time"
             android:paddingEnd="16dp" />
 
       <!--  <ImageView
@@ -170,14 +170,8 @@
             android:id="@+id/isha_time"
             style="@style/prayer_times"
             android:gravity="end"
-            android:text="22.46"
+            android:text="@string/isha_time"
             android:paddingEnd="16dp" />
-
-     <!--   <ImageView
-            android:id="@+id/isha_not"
-            style="@style/prayer_times"
-            android:paddingLeft="40dp"
-            android:src="@drawable/ic_notifications_black_24dp" />-->
 
     </LinearLayout>
 

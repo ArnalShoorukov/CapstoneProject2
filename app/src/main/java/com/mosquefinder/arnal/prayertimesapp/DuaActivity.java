@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.mosquefinder.arnal.prayertimesapp.Fragment.AdapterFragment;
+
 import com.mosquefinder.arnal.prayertimesapp.Fragment.DuaAdapterFragment;
 import com.mosquefinder.arnal.prayertimesapp.data.Dua;
 

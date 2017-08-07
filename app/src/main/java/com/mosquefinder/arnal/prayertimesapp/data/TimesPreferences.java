@@ -16,8 +16,6 @@ public final class TimesPreferences {
 
     public static final String PREF_COORD_LAT = "coord_lat";
     public static final String PREF_COORD_LONG = "coord_long";
-    public static final String PRAYER_TIMES = "prayer_times";
-
 
     public static void setPrayerTimes(Context context, ArrayList<String> prayerTimes) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -59,39 +57,6 @@ public final class TimesPreferences {
         return sp.getString(keyForLocation, defaultLocation);
     }
 
-    public static String getPreferredLocation(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String keyForLocation = context.getString(R.string.pref_location_key);
-        String defaultLocation = context.getString(R.string.pref_location_default);
-
-        return sp.getString(keyForLocation, defaultLocation);
-    }
-
-    public static int getCalculationMethod(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String keyForMethod = context.getString(R.string.pref_method_key);
-        String defaultMethod = context.getString(R.string.pref_method_mwl_value);
-
-        return sp.getInt(keyForMethod, Integer.parseInt(defaultMethod));
-    }
-    public static boolean isMetric(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String keyForUnits = context.getString(R.string.pref_units_key);
-        String defaultUnits = context.getString(R.string.pref_units_metric);
-        String preferredUnits = sp.getString(keyForUnits, defaultUnits);
-        String metric = context.getString(R.string.pref_units_metric);
-
-        boolean userPrefersMetric = false;
-        if (metric.equals(preferredUnits)) {
-            userPrefersMetric = true;
-        }
-
-        return userPrefersMetric;
-    }
-
     public static double[] getLocationCoordinates(Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -104,21 +69,5 @@ public final class TimesPreferences {
 
         return preferredCoordinates;
     }
-
-
-    public static boolean isLocationLatLonAvailable(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-
-        boolean spContainLatitude = sp.contains(PREF_COORD_LAT);
-        boolean spContainLongitude = sp.contains(PREF_COORD_LONG);
-
-        boolean spContainBothLatitudeAndLongitude = false;
-        if (spContainLatitude && spContainLongitude) {
-            spContainBothLatitudeAndLongitude = true;
-        }
-
-        return spContainBothLatitudeAndLongitude;
-    }
-
 
 }

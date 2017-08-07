@@ -15,13 +15,13 @@
     <TextView
         android:id="@+id/date_widget"
        style = "@style/TimesWidgetTitle"
-        android:text="Monday, 8 Thul-Qidah "
+        android:text="@string/widget_date"
         />
 
     <TextView
         android:id="@+id/textView_location"
         style = "@style/TimesWidgetTitle"
-        android:text="Bishkek"
+        android:text="@string/widget_bishkek"
         android:textAlignment="textEnd"/>
 
 </LinearLayout>

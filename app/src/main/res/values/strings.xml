@@ -7,8 +7,6 @@
     <string name="category_compass">Compass</string>
     <string name="category_map">Map</string>
 
-    <string name="action_share">Share</string>
-
     <!-- Used to open Settings Menu from MainActivity and DetailActivity -->
     <string name="action_settings">Settings</string>
 
@@ -17,11 +15,10 @@
 
     <!--Dua Fragment-->
     <string name="dua">Daily Supplications</string>
-    <string name="dua_title">Daily Supplications</string>
     <string name="category_all">All</string>
     <string name="category_favor">Favorite Dua</string>
-    <string name="added_favorite">Added to favourites</string>
     <string name="favourited">Favourite</string>
+    <string name="favourited_dua">Added to Favorite List</string>
     <string name="mark_as_favourite">Mark As Favourite</string>
 
     <string name="empty_favourite_gridview_message">Add some of your favourite suplication here.</string>
@@ -112,79 +109,6 @@
     <!-- Default postal code for location preference -->
     <string name="pref_location_default" translatable="false">Bishkek, Kyrgyzstan</string>
 
-    <!-- Label for the temperature units preference -->
-    <string name="pref_units_label">Temperature Units</string>
-
-    <!-- Label for metric option in temperature unit preference -->
-    <string name="pref_units_label_metric">Metric</string>
-
-    <!-- Label for imperial option in temperature unit preference -->
-    <string name="pref_units_label_imperial">Imperial</string>
-
-    <!-- Key name for temperature unit preference in SharedPreferences -->
-    <string name="pref_units_key" translatable="false">units</string>
-
-    <!-- Value in SharedPreferences for metric temperature unit option -->
-    <string name="pref_units_metric" translatable="false">metric</string>
-
-    <!-- Value in SharedPreferences for imperial temperature unit option -->
-    <string name="pref_units_imperial" translatable="false">imperial</string>
-
-    <!-- Strings related to Notification Enabled preference -->
-    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
-    <string name="pref_enable_notifications_label">Weather Notifications</string>
-
-    <string name="pref_enable_notifications_true">Enabled</string>
-    <string name="pref_enable_notifications_false">Not Enabled</string>
-
-    <string name="pref_last_notification">last_notification</string>
-
-
-    <!-- Strings for sort_by preference settings: default is sort by most popular -->
-    <string name="settings_sort_by_label">Sort By</string>
-    <string name="settings_sort_by_key" translatable="false">sort_by</string>
-    <string name="settings_sort_by_default" translatable="false">@string/settings_sort_by_most_popular_label</string>
-
-    <!-- Strings for sort_by highest rating option  -->
-    <string name="settings_sort_by_highest_rating_label">Highest rating</string>
-    <string name="settings_sort_by_highest_rating_value" translatable="false">top_rated?</string>
-
-    <!-- Strings for sort_by most popular option  -->
-    <string name="settings_sort_by_most_popular_label">popular?</string>
-    <string name="settings_sort_by_most_popular_value" translatable="false">popular?</string>
-
-    <!--for preferences-->
-
-    <string name="default_sort">top_rated</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
-
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-
-    <string name="add_new_location">Add new location</string>
-    <string name="location_list">Locations</string>
-    <string name="need_location_permission_message">You need to enable location permissions first</string>
-    <string name="location_permissions_granted_message">Location Permissions Granted</string>
-    <string name="setting_enabled" translatable="false">EnabledSetting</string>
-    <string name="settings_label">Settings</string>
-    <string name="location_permissions">Location Permissions</string>
-    <string name="enable_geofences">Enable Geofences</string>
-    <string name="privacy">http://www.google.com/policies/privacy</string>
-    <string name="ringer_permissions">Ringer Permissions</string>
-    <string name="silent_mode_activated">Silent mode activated</string>
-    <string name="touch_to_relaunch">Touch to launch the app.</string>
-    <string name="back_to_normal">Back to normal</string>
-
 
     <!-- prayer names -->
     <string name="fajr">Fajr</string>
@@ -193,9 +117,6 @@
     <string name="asr">Asr</string>
     <string name="magreeb">Magreeb</string>
     <string name="isha">Isha</string>
-
-    <string name="time_remains">Time Remaining</string>
-    <string name="ok">OK</string>
 
 
     <!-- Label for the calculation method preference -->
@@ -257,16 +178,6 @@
     <!-- Value in SharedPreferences for blue color option -->
     <string name="pref_juristic_hanafi_value" translatable="false">1</string>
 
-    <string name="hint_minute">Minute</string>
-    <string name="message_minutes">Please Enter Minutes...</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="compass_dial">Compass Dial</string>
-    <string name="compass_hands">Compass Hands</string>
-
-
     <!--Dua Fragment-->
     <string name="about">About Us</string>
     <string name="version">version: 1.0.0</string>
@@ -276,10 +187,43 @@
     <string name="twitter">Twitter</string>
     <string name="telegram">Telegram</string>
     <string name="whatsapp">Whatsapp</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-8100392549328812/9678202561</string>
-    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-8100392549328812/6441842747</string>
-    <string name="interstitial_error">Interstitial ad failed to load.</string>
+    <string name="welcome_google">Welcome to our Google +</string>
+    <string name="welcome_facebook">Welcome to our Facebook</string>
+    <string name="welcome_twitter">Welcome to our Twitter</string>
+    <string name="welcome_telegram">Welcome to our Telegram</string>
+    <string name="welcome_whatsapp">Welcome to our Whatsapp</string>
+
+
+    <string name="benefit">Benefit</string>
+    <string name="translation">Translation</string>
+    <string name="reference">Reference</string>
+    <string name="quran">The Noble Quran</string>
+
+    <string name="quran_text_desired">Please Enter Page Number</string>
+    <string name="go_to_page">Go To Page</string>
+    <string name="hint">1 - 604</string>
+
+
+    <string name="fajr_time">03:16</string>
+    <string name="sunrise_time">05:30</string>
+    <string name="zuhr_time">13:06</string>
+    <string name="asr_time">17:06</string>
+    <string name="magreeb_time">20:42</string>
+    <string name="isha_time">22:46</string>
+
+    <string name="widget_date">Monday, 8 Thul-Qidah</string>
+    <string name="widget_bishkek">Bishkek, Kyrgyzstan</string>
+    <string name="compass_true">You are facing to Qibla</string>
+    <string name="need_location_permission_message">Needs location permission</string>
+    <string name="description">Play button</string>
+    <string name="description_names">the Name of Allah</string>
+    <string name="description_compass">Compass Image</string>
+    <string name="description_arabic">Arabic version of Dua</string>
+    <string name="description_heart">Favorited Image</string>
+
+    <string name="un_favorited">Removed from Favorite List</string>
+    <string name="permission_denied">Permission for location not granted.</string>
+    <string name="title_activity_quran">QuranActivity</string>
+
 </resources>

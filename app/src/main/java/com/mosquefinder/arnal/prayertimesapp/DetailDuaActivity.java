@@ -152,7 +152,7 @@ public class DetailDuaActivity extends AppCompatActivity {
 
                     //Check whether the movie is favourited
                     if (favouriteText.equals(getString(R.string.favourited))) {
-                        Toast.makeText(DetailDuaActivity.this, "Removed from Favorite List", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailDuaActivity.this, getString(R.string.un_favorited), Toast.LENGTH_SHORT).show();
 
                         // Unmark as favourite and delete it from the database
                         mContentResolver.delete(
@@ -164,7 +164,7 @@ public class DetailDuaActivity extends AppCompatActivity {
                         // Update favourite icon and text
                         setFavouriteImageText(false, mFavouriteIcon, mFavouriteTextView);
                     }else {
-                        Toast.makeText(DetailDuaActivity.this, "Added to Favorite List", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailDuaActivity.this, getString(R.string.favourited_dua), Toast.LENGTH_SHORT).show();
                         addFavourite();
                         // Update favourite icon and text
                         setFavouriteImageText(true, mFavouriteIcon, mFavouriteTextView);

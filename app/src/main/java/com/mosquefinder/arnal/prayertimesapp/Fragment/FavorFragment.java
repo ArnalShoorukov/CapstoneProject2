@@ -20,8 +20,6 @@ import android.widget.TextView;
 import com.mosquefinder.arnal.prayertimesapp.FavorDetailsActivity;
 import com.mosquefinder.arnal.prayertimesapp.R;
 import com.mosquefinder.arnal.prayertimesapp.adapter.FavouriteCursorAdapter;
-import com.mosquefinder.arnal.prayertimesapp.data.Dua;
-import com.mosquefinder.arnal.prayertimesapp.database.DuaContract;
 import com.mosquefinder.arnal.prayertimesapp.database.DuaContract.DuaEntry;
 
 /**
@@ -33,26 +31,6 @@ public class FavorFragment extends Fragment implements LoaderManager.LoaderCallb
     // Identifier for the Loader
     private static final int FAVOURITE_LOADER = 3;
     FavouriteCursorAdapter mCursorAdapter;
-    private static final String[] FAVOURITE_COLUMNS = {
-            DuaEntry._ID,
-            DuaEntry.COLUMN_DUA_ID,
-            DuaEntry.COLUMN_TITLE,
-            DuaEntry.COLUMN_ENGLISH,
-            DuaEntry.COLUMN_REFERENCE,
-            DuaEntry.COLUMN_BENEFIT,
-            DuaEntry.COLUMN_AUDIO_RESOURCE_ID,
-            DuaEntry.COLUMN_IMAGE_RESOURCE_ID,
-    };
-
-    // These indices are tied to FAVOURITE_COLUMNS.
-    public static final int COL_ID = 0;
-    public static final int COL_DUA_ID = 1;
-    public static final int COL_DUA_TITLE = 2;
-    public static final int COL_DUA_ENGLISH = 3;
-    public static final int COL_DUA_REFEERENCE = 4;
-    public static final int COL_DUA_BENEFIT = 5;
-    public static final int COL_DUA_AUDIO = 6;
-    public static final int COL_DUA_IMAGE = 7;
 
     GridView favouriteGridView;
     TextView mEmptyStateTextView;
@@ -60,19 +38,9 @@ public class FavorFragment extends Fragment implements LoaderManager.LoaderCallb
     private int mPosition = GridView.INVALID_POSITION;
     private static final String SELECTED_KEY = "selected_position";
 
-
-    /**
-     * A callback interface that allows the fragment to pass data on to the activity
-     */
-    public interface Callback {
-        void onFavouriteSelected(Uri contentUri);
-    }
-
-
     public FavorFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -4,13 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="colorBackground">#151B29</color>
-    <color name="colorYellow">#F5FA55</color>
+
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGreen">#00cd00</color>
-    <color name="colorBlue">#1E90FF</color>
     <color name="colorBlueLight">#81d4fa</color>
 
-    <color name="fav">#F56890</color>
+
 </resources>

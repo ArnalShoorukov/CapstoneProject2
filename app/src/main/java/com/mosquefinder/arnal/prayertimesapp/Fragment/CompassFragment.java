@@ -79,6 +79,7 @@ public class CompassFragment extends Fragment implements SensorEventListener{
 
         // for the system's orientation sensor registered listeners
 
+        //noinspection deprecation
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
 
                 SensorManager.SENSOR_DELAY_GAME);
@@ -116,10 +117,12 @@ public class CompassFragment extends Fragment implements SensorEventListener{
         currentDegree = -degree;
         if(degree == f){
            // getView().setBackgroundColor(0xFF00FF00);
+            //noinspection deprecation
             getView().setBackgroundColor(getResources().getColor(R.color.colorGreen));
-            tvHeading.setText("You are facing to Qibla");
+            tvHeading.setText(getString(R.string.compass_true));
 
         }else
+            //noinspection deprecation
             getView().setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
     }

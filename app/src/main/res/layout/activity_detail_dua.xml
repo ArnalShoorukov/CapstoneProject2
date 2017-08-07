@@ -17,25 +17,25 @@
         android:id="@+id/title_dua"
         android:text="@string/title_first"
         android:layout_gravity="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"/>
     <ImageView
         android:id="@+id/arabic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_fav_light"
-         />
+        android:contentDescription="@string/description_arabic" />
 
     <TextView
         style="@style/DetailDua"
-        android:text="Translation" />
+        android:text="@string/translation" />
 
     <TextView
         android:id="@+id/translation_text"
         style="@style/DetailDuaIn"/>
     <TextView
         style="@style/DetailDua"
-        android:text="Benefit" />
+        android:text="@string/benefit" />
 
     <TextView
         android:id="@+id/benefit_text"
@@ -43,7 +43,7 @@
 
     <TextView
         style="@style/DetailDua"
-        android:text="Reference" />
+        android:text="@string/reference" />
 
     <TextView
         android:id="@+id/reference_text"
@@ -66,6 +66,7 @@
             android:layout_height="24dp"
             tools:src="@drawable/ic_fav_light"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/description_heart"
             app:layout_constraintTop_toBottomOf="@+id/fab"
             app:layout_constraintRight_toLeftOf="@+id/releaseDate"
             android:clickable="false"   />

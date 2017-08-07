@@ -17,6 +17,10 @@
         android:title="@string/qibla"
         app:showAsAction="never" />
     <item
+        android:id="@+id/quran"
+        android:title="@string/quran"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/dua_activity"
         android:title="@string/dua"
         app:showAsAction="never" />

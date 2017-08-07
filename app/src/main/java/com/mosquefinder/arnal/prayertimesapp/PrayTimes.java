@@ -309,7 +309,7 @@ public class PrayTimes {
     // convert a calendar date to julian date (second method)
     private double calcJD(int year, int month, int day) {
         double J1970 = 2440588.0;
-        Date date = new Date(year, month - 1, day);
+        @SuppressWarnings("deprecation") Date date = new Date(year, month - 1, day);
 
         double ms = date.getTime(); // # of milliseconds since midnight Jan 1,
         // 1970
