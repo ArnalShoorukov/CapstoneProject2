@@ -125,6 +125,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".QuranActivity" />
         </activity>
+        <activity android:name=".AthanActivity"></activity>
     </application>
 
 </manifest>
